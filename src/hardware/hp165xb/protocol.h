@@ -39,27 +39,18 @@ struct dev_context {
 	int64_t start_us;
 	int64_t spent_us;
 	uint64_t step;
+
 	/* Logic */
 	int32_t num_logic_channels;
 	size_t logic_unitsize;
 	uint64_t all_logic_channels_mask;
-	/* There is only ever one logic channel group, so its pattern goes here. */
-	enum logic_pattern_type logic_pattern;
-	uint8_t logic_data[LOGIC_BUFSIZE];
+	uint8_t logic_data[4096];
+
 	/* Analog */
-	struct analog_pattern *analog_patterns[ARRAY_SIZE(analog_pattern_str)];
 	int32_t num_analog_channels;
 	GHashTable *ch_ag;
-	gboolean avg; /* True if averaging is enabled */
-	uint64_t avg_samples;
 	size_t enabled_logic_channels;
 	size_t enabled_analog_channels;
-	size_t first_partial_logic_index;
-	uint8_t first_partial_logic_mask;
-	/* Triggers */
-	uint64_t capture_ratio;
-	gboolean trigger_fired;
-	struct soft_trigger_logic *stl;
 };
 
 #endif
