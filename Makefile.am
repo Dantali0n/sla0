@@ -337,6 +337,10 @@ src_libdrivers_la_SOURCES += \
 	src/hardware/dcttech-usbrelay/protocol.c \
 	src/hardware/dcttech-usbrelay/api.c
 endif
+src_libdrivers_la_SOURCES += \
+	src/hardware/hp165xb/protocol.h \
+	src/hardware/hp165xb/protocol.c \
+	src/hardware/hp165xb/api.c
 if HW_DEMO
 src_libdrivers_la_SOURCES += \
 	src/hardware/demo/protocol.h \
